@@ -27,8 +27,7 @@ class Letter < ActiveRecord::Base
   def number_must_be_valid
     unless number.nil?
 
-      test_val = number.gsub(/[^0-9A-Za-z]/, '')
-      # test_val.delete!' '
+      test_val = number.gsub(/[^0-9A-Za-z]/, '').delete!'a-z '
 
       if test_val.length < 10 || test_val.length > 11 || (test_val[0] == '1' && test_val.length == 10)
        errors.add(:number, 'must include existing non-extension number')
