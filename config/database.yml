@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: michellekeyeslpc_development
+  pool: 5
+  username: Drew
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: michellekeyeslpc_test
+  pool: 5
+  username: Drew
+  password:
+
+
