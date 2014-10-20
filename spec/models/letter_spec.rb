@@ -33,15 +33,19 @@ describe Letter do
     end
 
     it 'should not have a number w/ too many digits' do
-      expect(FactoryGirl.build(:letter, number:'1-610-610-6100-0')).to_not be_valid
+      expect(FactoryGirl.build(:letter, number:'1-610-610-6100-0d')).to_not be_valid
     end
 
     it 'should not have a number w/ too few digits' do
       expect(FactoryGirl.build(:letter, number:'1-610-610-61')).to_not be_valid
     end
 
-    it 'should not have a number w/ too few digits' do
+    it 'should not discriminate for spaces' do
       expect(FactoryGirl.build(:letter, number:'1-610-610-61   ')).to_not be_valid
+    end
+
+    it 'should not have a number that starts with zero' do
+      expect(FactoryGirl.build(:letter, number:'0-610-610-61')).to_not be_valid
     end
 
   end

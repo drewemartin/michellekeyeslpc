@@ -10,7 +10,13 @@ class Letter < ActiveRecord::Base
   private
 
   def format_number
-    formatted_number = self.number 
+    formatted_number = self.number.gsub(/[^0-9A-Za-z]/, '')
+    formatted_number.delete!'a-z '
+    if formatted_number[0] == '1'
+      self.number = formatted_number.insert(1,'-').insert(5,'-').insert(9,'-')
+    else
+      self.number = formatted_number.insert(3,'-').insert(7,'-')
+    end
 
   end
 
@@ -27,9 +33,10 @@ class Letter < ActiveRecord::Base
   def number_must_be_valid
     unless number.nil?
 
-      test_val = number.gsub(/[^0-9A-Za-z]/, '').delete!'a-z '
+      test_val = number.gsub(/[^0-9A-Za-z]/, '')
+      test_val.delete!'a-z'
 
-      if test_val.length < 10 || test_val.length > 11 || (test_val[0] == '1' && test_val.length == 10)
+      if test_val.length < 10 || test_val.length > 11 || (test_val[0] == '1' && test_val.length == 10) || test_val[0] == '0'
        errors.add(:number, 'must include existing non-extension number')
       end
     end
