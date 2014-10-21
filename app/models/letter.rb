@@ -1,6 +1,6 @@
 class Letter < ActiveRecord::Base
 
-  before_save :format_number
+  before_create :format_number
 
   validates :name, :message, :email, :number, presence: true
 
@@ -10,8 +10,7 @@ class Letter < ActiveRecord::Base
   private
 
   def format_number
-    formatted_number = self.number.gsub(/[^0-9A-Za-z]/, '')
-    formatted_number.delete!'a-z '
+    formatted_number = self.number
     if formatted_number[0] == '1'
       self.number = formatted_number.insert(1,'-').insert(5,'-').insert(9,'-')
     else
@@ -33,10 +32,7 @@ class Letter < ActiveRecord::Base
   def number_must_be_valid
     unless number.nil?
 
-      test_val = number.gsub(/[^0-9A-Za-z]/, '')
-      test_val.delete!'a-z'
-
-      if test_val.length < 10 || test_val.length > 11 || (test_val[0] == '1' && test_val.length == 10) || test_val[0] == '0'
+      if number.length < 10 || number.length > 11 || (number[0] == '1' && number.length == 10) || (number[0] != '1' && number.length > 10) || number[0] == '0' || number.split('').any? { |char| char =~ /[A-Za-z]/ }
        errors.add(:number, 'must include existing non-extension number')
       end
     end
