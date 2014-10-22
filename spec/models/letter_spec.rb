@@ -68,6 +68,14 @@ describe Letter do
       expect(FactoryGirl.build(:letter, appointment:(Time.now - 1.seconds))).to_not be_valid
     end
 
+    it 'should not accept appointments for the weekend' do
+      expect(FactoryGirl.build(:letter, appointment:(Time.now + 3.days))).to_not be_valid
+    end
+
+    it 'should not accept appointments for the weekend' do
+      expect(FactoryGirl.build(:letter, appointment:(Time.now + 4.days))).to_not be_valid
+    end
+
   end
 
 end

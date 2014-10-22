@@ -7,6 +7,7 @@ class Letter < ActiveRecord::Base
   validate :email_must_have_symbols
   validate :number_must_be_valid
   validate :appointment_must_not_request_past_time
+  validate :appointment_must_not_be_duiring_weekend
 
   private
 
@@ -49,6 +50,16 @@ class Letter < ActiveRecord::Base
       
     end
   end
+
+  def appointment_must_not_be_duiring_weekend
+    unless appointment.nil?
+      
+      if appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[0].delete(',') == "Sat" || appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[0].delete(',') == "Sun"
+        errors.add(:appointment, 'please send a message to see if a weekend appointment is available')
+      end
+    end
+  end
+
 end
 
 
