@@ -8,6 +8,6 @@ FactoryGirl.define do
     email Faker::Internet.email
     number Faker::PhoneNumber.phone_number
     message "MyText"
-    appointment "2014-10-20 11:55:33"
+    appointment "2014-10-23 11:55:33"
   end
 end

@@ -32,20 +32,40 @@ describe Letter do
       expect(FactoryGirl.build(:letter, number:nil)).to_not be_valid
     end
 
-    it 'should not have a number w/ too many digits' do
-      expect(FactoryGirl.build(:letter, number:'1-610-610-6100-0d')).to_not be_valid
+    it 'should not have a number w/ any letters' do
+      expect(FactoryGirl.build(:letter, number:'2813308004d')).to_not be_valid
     end
 
     it 'should not have a number w/ too few digits' do
-      expect(FactoryGirl.build(:letter, number:'1-610-610-61')).to_not be_valid
+      expect(FactoryGirl.build(:letter, number:'281330800')).to_not be_valid
     end
 
-    it 'should not discriminate for spaces' do
-      expect(FactoryGirl.build(:letter, number:'1-610-610-61   ')).to_not be_valid
+    it 'should not have too many digits' do
+      expect(FactoryGirl.build(:letter, number:'281330800411')).to_not be_valid
     end
 
     it 'should not have a number that starts with zero' do
-      expect(FactoryGirl.build(:letter, number:'0-610-610-61')).to_not be_valid
+      expect(FactoryGirl.build(:letter, number:'02813308004')).to_not be_valid
+    end
+
+    it 'should not have a number that starts with zero' do
+      expect(FactoryGirl.build(:letter, number:'0281330800')).to_not be_valid
+    end
+
+    it 'should permit correct, preformatted numbers with dashes' do
+      expect(FactoryGirl.build(:letter, number:'281-330-8004')).to be_valid
+    end
+
+    it 'should permit correct, preformatted numbers with dashes' do
+      expect(FactoryGirl.build(:letter, number:'1-281-330-8004')).to be_valid
+    end
+
+    it 'should permit correct, preformatted numbers with dashes' do
+      expect(FactoryGirl.build(:letter, number:'1-281-330-8004')).to be_valid
+    end
+
+    it 'should not accept appointments from the past' do
+      expect(FactoryGirl.build(:letter, appointment:(Time.now - 1.seconds))).to_not be_valid
     end
 
   end
@@ -57,3 +77,10 @@ end
 # number Faker::PhoneNumber.phone_number
 # message "MyText"
 # appointment "2014-10-20 11:55:33"
+# 281-330-8004
+# 2813308004
+
+
+
+Time.new(Time.now.year,Time.now.month,Time.now.hour,Time.now.min,Time.now.sec)
+Time.new(2014,11,x,5,55)
