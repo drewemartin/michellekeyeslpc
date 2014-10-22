@@ -80,7 +80,4 @@ end
 # 281-330-8004
 # 2813308004
 
-
-
-Time.new(Time.now.year,Time.now.month,Time.now.hour,Time.now.min,Time.now.sec)
-Time.new(2014,11,x,5,55)
+# l = Letter.new(name:'george',email:'drew.e.martingmail.com',number:'-610-564-3142',message:'hola',appointment:(Time.now - 1.seconds))
