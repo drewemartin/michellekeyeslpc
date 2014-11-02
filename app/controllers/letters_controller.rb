@@ -15,6 +15,10 @@ class LettersController < ApplicationController
   # POST /letters.json
   def create
     @letter = Letter.new(letter_params)
+    unless params[:month].nil? || params[:day].nil? 
+      @letter.appointment = DateTime.new(set_appointment_year(params[:year],params[:month]), params[:month].to_i, set_appointment_day(params[:month],params[:day],params[:year]), set_appointment_time(params[:time]))
+    end
+    
 
 
     respond_to do |format|
@@ -39,7 +43,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def letter_params
-    params.require(:letter).permit(:name, :email, :number, :message, :appointment)
+    params.require(:letter).permit(:name, :email, :number, :message, :appointment, :month)
   end
 
   def years
@@ -107,6 +111,9 @@ private
   end
 
   def set_appointment_day(month,day,year) 
+    month = month.to_i
+    day = day.to_i
+    year = year.to_i
     if day > 28
       case month
       when 2
@@ -131,14 +138,29 @@ private
   end
 
   def set_appointment_time(time)
-    if t.split(' ').include? 'pm'
+    if time.nil?
+      return 0
+    elsif time.split(' ').include? 'pm'
       integer_val = time.delete!(' ').delete!('pm').to_i
       if integer_val < 11
         return integer_val + 12
       else
         return integer_val
-    else
+      end
+    elsif time.split(' ').include? 'am'
       return time.delete!(' ').delete!('am').to_i
+    end
+  end
+
+  def set_appointment_year(year,month)
+    current_year = Time.now.year
+    current_month = Time.now.month
+    if year.nil? && month < current_month
+      return (current_year + 1)
+    elsif year.nil?
+      return current_year
+    else
+      return year.to_i
     end
   end
 
