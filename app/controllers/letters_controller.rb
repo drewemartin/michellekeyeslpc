@@ -4,6 +4,10 @@ class LettersController < ApplicationController
   # GET /letters/new
   def new
     @letter = Letter.new
+    @year_range = years
+    @month_range = months
+    @day_range = days
+    @time_range = times
   end
 
 
@@ -37,7 +41,67 @@ private
     params.require(:letter).permit(:name, :email, :number, :message, :appointment)
   end
 
-  def set_hours
+  def years
+    x = 0
+    base_year = Time.zone.now.year
+    year_range = []
+    
+    while x < 3 do
+      year_range << (base_year + x)
+      x+=1
+      puts year_range
+    end
+
+    return year_range
+
+  end
+
+  def months
+    x = 1
+    month_range = []
+    
+    while x < 13 do
+      month_range << x
+      x+=1
+      puts month_range
+    end
+
+    return month_range
      
   end
+
+  def days
+    x = 1
+    day_range = []
+    
+    while x < 32 do
+      day_range << x
+      x+=1
+      puts day_range
+    end
+
+    return day_range
+    
+  end
+
+  def times
+    x = 9
+    time_range = []
+
+    while x < 18 do
+      if x < 12
+        time_range << "#{x} am"
+        x+=1
+      elsif x == 12
+        time_range << "#{x} pm"
+        x+=1
+      else
+        time_range << "#{x - 12} pm"
+        x+=1
+      end
+    end
+
+    return time_range
+  end
+
 end

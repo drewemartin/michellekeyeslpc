@@ -7,7 +7,8 @@ class Letter < ActiveRecord::Base
   validate :email_must_have_symbols
   validate :number_must_be_valid
   validate :appointment_must_not_request_past_time
-  validate :appointment_must_not_be_duiring_weekend
+  validate :appointment_must_not_be_during_weekend
+  validate :appoinment_must_land_on_a_real_date
 
   private
 
@@ -51,15 +52,54 @@ class Letter < ActiveRecord::Base
     end
   end
 
-  def appointment_must_not_be_duiring_weekend
+  def appointment_must_not_be_during_weekend
     unless appointment.nil?
       
-      if appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[0].delete(',') == "Sat" || appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[0].delete(',') == "Sun"
-        errors.add(:appointment, 'please send a message to see if a weekend appointment is available')
+      if appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[0].delete(',') == "Sat" || 
+        appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[0].delete(',') == "Sun"
+          errors.add(:appointment, 'please send a message to see if a weekend appointment is available')
       end
     end
   end
 
+  def appoinment_must_land_on_a_real_date
+    unless appointment.nil?
+      test_val_month = appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[2]
+      test_val_day = appointment.day
+      test_val_leap_year = appointment.year % 4 != 0
+
+      # days31 = ["Jan","Mar","May","Jul","Aug","Oct","Dec"] not needed since amount will be capped at 31
+      days30 = ["Apr","Jun","Sep","Nov",30]
+      days28 = ["Feb",28,29]
+      
+      if (days30.include? test_val_month && test_val_day > days30.last) || (days28.include? test_val_month && test_val_day > days28[1] && test_val_leap_year) || (days28.include? test_val_month && test_val_day > days28[2])
+          errors.add(:appointment, 'please choose a date within a month')
+      
+      # 31 - jan, march, may, july, august, october, dec
+      
+      # 28 - feb (29 days on leap years; years divided evenly by 4)
+      
+      # 30 - april, june, september, november
+
+      # "Jan"
+      # "Feb"
+      # "Mar"
+      # "Apr"
+      # "May"
+      # "Jun"
+      # "Jul"
+      # "Aug"
+      # "Sep"
+      # "Oct"
+      # "Nov"
+      # "Dec"
+      end
+
+    end
+
+  end
+
 end
+
 
 

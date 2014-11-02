@@ -73,7 +73,11 @@ describe Letter do
     end
 
     it 'should not accept appointments for the weekend' do
-      expect(FactoryGirl.build(:letter, appointment:(Time.now + 4.days))).to_not be_valid
+      expect(FactoryGirl.build(:letter, appointment:(Time.now + 3.days))).to_not be_valid
+    end
+
+    it 'should not save appointments for days that fall outside the scope of the given month' do
+      expect(FactoryGirl.build(:letter, appointment:(Time.new(2015,2,31,5,5,55)), number:'1-281-330-8004')).to_not be_valid
     end
 
   end
