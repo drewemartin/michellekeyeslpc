@@ -16,6 +16,7 @@ class LettersController < ApplicationController
   def create
     @letter = Letter.new(letter_params)
 
+
     respond_to do |format|
       if @letter.save
         format.html { redirect_to @letter, notice: 'Letter was successfully created.' }
@@ -102,7 +103,7 @@ private
     end
 
     return time_range
-    
+
   end
 
 end

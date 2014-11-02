@@ -28,10 +28,23 @@
     <%= f.text_area :message %>
   </div>
   <div class="field">
-    <%= f.label :appointment %><br>
-    <%= f.datetime_select :appointment %>
+    <%= f.label :month  %>
+    <%= f.select :month, @month_range %>
+  </div>
+  <div class="field">
+    <%= f.label :day  %>
+    <%= f.select :day, @day_range %>
+  </div>
+  <div class="field">
+    <%= f.label :year  %>
+    <%= f.select :year, @year_range %>
+  </div>
+  <div class="field">
+    <%= f.label :time  %>
+    <%= f.select :time, @time_range %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
