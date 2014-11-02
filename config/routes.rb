@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'about/index'
+
+  get 'window/index'
+
   resources :letters
 
   # The priority is based upon order of creation: first created -> highest priority.
