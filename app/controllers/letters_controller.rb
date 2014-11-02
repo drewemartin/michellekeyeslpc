@@ -26,6 +26,10 @@ class LettersController < ApplicationController
         format.html { redirect_to @letter, notice: 'Letter was successfully created.' }
         format.json { render :show, status: :created, location: @letter }
       else
+        @year_range = years
+        @month_range = months
+        @day_range = days
+        @time_range = times
         format.html { render :new }
         format.json { render json: @letter.errors, status: :unprocessable_entity }
       end
@@ -63,7 +67,7 @@ private
 
   def months
     x = 1
-    month_range = [nil]
+    month_range = ['']
     
     while x < 13 do
       month_range << x
@@ -77,7 +81,7 @@ private
 
   def days
     x = 1
-    day_range = [nil]
+    day_range = ['']
     
     while x < 32 do
       day_range << x
@@ -91,7 +95,7 @@ private
 
   def times
     x = 9
-    time_range = [nil]
+    time_range = ['']
 
     while x < 18 do
       if x < 12
@@ -138,7 +142,7 @@ private
   end
 
   def set_appointment_time(time)
-    if time.nil?
+    if time == ''
       return 0
     elsif time.split(' ').include? 'pm'
       integer_val = time.delete!(' ').delete!('pm').to_i
@@ -155,9 +159,9 @@ private
   def set_appointment_year(year,month)
     current_year = Time.now.year
     current_month = Time.now.month
-    if year.nil? && month < current_month
+    if year == '' && month.to_i < current_month
       return (current_year + 1)
-    elsif year.nil?
+    elsif year == ''
       return current_year
     else
       return year.to_i

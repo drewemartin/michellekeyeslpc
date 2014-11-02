@@ -29,19 +29,19 @@
   </div>
   <div class="field">
     <%= label_tag 'month:'  %>
-    <%= select_tag("month", options_for_select(@month_range,@month_range.size)) %>
+    <%= select_tag("month", options_for_select(@month_range)) %>
   </div>
   <div class="field">
     <%= label_tag 'day:'  %>
-    <%= select_tag("day", options_for_select(@day_range,@day_range.size)) %>
+    <%= select_tag("day", options_for_select(@day_range)) %>
   </div>
   <div class="field">
     <%= label_tag 'year:'  %>
-    <%= select_tag("year", options_for_select(@year_range,@year_range.size)) %>
+    <%= select_tag("year", options_for_select(@year_range)) %>
   </div>
   <div class="field">
     <%= label_tag 'time:'  %>
-    <%= select_tag("time", options_for_select(@time_range,@time_range.size)) %>
+    <%= select_tag("time", options_for_select(@time_range)) %>
   </div>
   <div class="actions">
     <%= f.submit %>
