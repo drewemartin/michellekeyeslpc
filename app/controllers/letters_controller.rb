@@ -106,4 +106,40 @@ private
 
   end
 
+  def set_appointment_day(month,day,year) 
+    if day > 28
+      case month
+      when 2
+        if year % 4 == 0 
+          return 29
+        else
+          return 28
+        end
+      when 4,6,9,11
+        if day > 30
+          return 30
+        else
+          return day
+        end
+      else
+        return day
+      end
+    else
+      return day
+    end
+
+  end
+
+  def set_appointment_time(time)
+    if t.split(' ').include? 'pm'
+      integer_val = time.delete!(' ').delete!('pm').to_i
+      if integer_val < 11
+        return integer_val + 12
+      else
+        return integer_val
+    else
+      return time.delete!(' ').delete!('am').to_i
+    end
+  end
+
 end

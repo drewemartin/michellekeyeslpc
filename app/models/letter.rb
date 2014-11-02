@@ -57,7 +57,7 @@ class Letter < ActiveRecord::Base
       
       if appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[0].delete(',') == "Sat" || 
         appointment.strftime("%a, %d %b %Y %H:%M:%S %z").split(' ')[0].delete(',') == "Sun"
-          errors.add(:appointment, 'please send a message to see if a weekend appointment is available')
+          errors.add(:appointment, 'please send only a message to see if a weekend appointment is available')
       end
     end
   end
