@@ -15,7 +15,7 @@ class LettersController < ApplicationController
   # POST /letters.json
   def create
     @letter = Letter.new(letter_params)
-    unless params[:month].nil? || params[:day].nil? 
+    unless params[:month] == '' || params[:day] == '' 
       @letter.appointment = DateTime.new(set_appointment_year(params[:year],params[:month]), params[:month].to_i, set_appointment_day(params[:month],params[:day],params[:year]), set_appointment_time(params[:time]))
     end
     
@@ -49,7 +49,7 @@ private
   def years
     x = 0
     base_year = Time.zone.now.year
-    year_range = []
+    year_range = [nil]
     
     while x < 3 do
       year_range << (base_year + x)
@@ -63,7 +63,7 @@ private
 
   def months
     x = 1
-    month_range = []
+    month_range = [nil]
     
     while x < 13 do
       month_range << x
@@ -77,7 +77,7 @@ private
 
   def days
     x = 1
-    day_range = []
+    day_range = [nil]
     
     while x < 32 do
       day_range << x
@@ -91,7 +91,7 @@ private
 
   def times
     x = 9
-    time_range = []
+    time_range = [nil]
 
     while x < 18 do
       if x < 12
