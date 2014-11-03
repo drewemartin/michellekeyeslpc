@@ -23,6 +23,9 @@ class LettersController < ApplicationController
 
     respond_to do |format|
       if @letter.save
+
+        GuestMailer.send_to_practice(@letter).deliver
+
         format.html { redirect_to @letter, notice: 'Letter was successfully created.' }
         format.json { render :show, status: :created, location: @letter }
       else
