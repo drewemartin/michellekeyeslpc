@@ -1,2 +1,0 @@
-class BioController < ApplicationController
-end
