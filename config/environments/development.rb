@@ -32,6 +32,16 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => 'drew.e.martin@gmail.com',
+    :password  => 'rqvit6QU1OGLMAV0CNXt7w', # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => 'yourdomain.com', # your domain to identify your server when connecting
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
