@@ -1,7 +1,10 @@
 Email Sent from Your Site
 Sender: <%= @letter.name %>
-Address: <%= @letter.email %>
+Sender's Email: <%= @letter.email %>
 Phone: <%= @letter.number %>
-<%= return "Proposed Appointment: #{@letter.appointment.strftime("%a, %d %b %Y %I:%M %p")}" if @letter.appointment %>
+<% if @letter.appointment %>
+Proposed Appointment: <%= @letter.appointment.strftime("%a, %d %b %Y %I:%M %p") %>
+<% end %>
+Message:
 <%= @letter.message %>
 ** Please Confirm All Information with Clients **
