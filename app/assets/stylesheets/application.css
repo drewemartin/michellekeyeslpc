@@ -11,5 +11,207 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require bootstrap_and_overrides
  *= require_self
  */
+
+#pic_holder{
+	margin-top: 20px;
+}
+
+#welcomes_name{
+	position: relative;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 36px;
+	-webkit-margin-before: 0.67em;
+	-webkit-margin-after: 0.67em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+#letter_notice_div{
+	background-color: rgba(67, 218, 175, 0.6);
+	margin-top: -20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 0px 0px 5px 5px;
+}
+
+#chart1, #chart2, #chart3, #chart4{
+	text-align: center;
+}  
+
+#letter_notice{
+	margin-top: 0px;
+	padding: 0px;
+	margin-bottom: 0px;
+}
+
+#alert_div{
+	background-color: rgba(227, 110, 83, 0.6);
+	margin-top: -20px;
+}
+
+#notice_div{
+	background-color: rgba(67, 218, 175, 0.6);
+	margin-top: -20px;
+
+}
+
+#alert_div, #notice_div{
+	border-radius: 0px 0px 5px 5px;
+}
+
+#notice, #alert{
+	margin-top: 10px;
+}
+
+
+.error_header{
+	margin: auto;
+}
+
+.error_div{
+	height: 150px;
+	width: 150px;
+	background-color: rgba(227, 110, 83, 0.6);
+	border-radius: 50%;
+	padding-top: 45px;
+}
+
+.error_lis{
+	list-style-type: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.footer_text_color{
+	color: #428bca;
+}
+
+.title_padding{
+	padding-top: 20px;
+}
+
+.created_on{
+	font-size: 13px;
+	margin-top: -8px;
+	padding-bottom: 10px;
+}
+
+.paragraph_font{
+	font-size: 15px;
+}
+
+.blog_body{
+	font-size: 17px;
+}
+
+.hobby_size{
+	height: 100px;
+	width: 100px;
+}
+
+#abouts_pic_holder{
+	padding-top: 25px;
+}
+
+#abouts_footer, #blog_articles_footer{
+	padding-top: 95px;
+	padding-bottom: 60px;
+}
+
+#abouts_pic{
+	height: 496px;
+	width: 360px;
+}
+
+#personal_pic{
+	height: 440px;
+	width: 298px;
+	border-radius: 20px;
+	border: solid 1px #cccccc;
+}
+
+.btn-info{
+	margin-top: 10px;
+}
+
+#letter_message{
+	width: 220px;
+	height: 220px;
+}
+
+input{
+	width: 220px;
+}
+
+label{
+	padding-top: 15px;
+}
+
+#user_sessions_footer{
+	padding-top: 250px;
+	padding-bottom: 60px;
+}
+
+#users_footer{
+	padding-top: 230px;;
+	padding-bottom: 60px;
+}
+
+#letters_footer{
+	padding-top: 75px;
+	padding-bottom: 60px;
+}
+
+#margin60{
+	padding-bottom: 60px;
+	padding-top: 10px;
+}
+
+#margin15{
+	padding: 15px;
+}
+
+h4{
+	text-align: center;
+}
+
+#white_text{
+	color: white;
+}
+
+
+.navbar-default .navbar-header .navbar-brand {
+    color: white;
+} 
+
+.navbar-default{
+	background-image: -webkit-linear-gradient(to right, #94577D, #A47090, #94577D);
+	background-image: -o-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
+	background-image: -moz-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
+	background-image: linear-gradient(to right, #94577D, #A47090, #94577D);
+		
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    padding-bottom: 0px;
+    margin-right: 5px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+
+
+
+.navbar-default .navbar-nav > li > a:hover{
+	border-bottom: 2px solid white;
+	color: white;
+}
