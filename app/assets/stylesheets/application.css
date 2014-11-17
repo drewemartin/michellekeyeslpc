@@ -15,8 +15,61 @@
  *= require_self
  */
 
+nav.navbar.navbar-default:before{
+	background-color: #A47090;
+}
+nav.navbar.navbar-default:after{
+	background-color: #eeeedd;
+}
+
+#change_after_color{
+	margin: 0px;
+	padding: 0px;
+}
+
+#purple_top_div{
+	color: rgba(255, 255, 255, 0);
+	height: 39px;
+	background-color: #A47090;
+	border-radius: 0 0 40px 40px;
+	/*background-image: -webkit-linear-gradient(to right, #94577D, #A47090, #94577D);
+	background-image: -o-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
+	background-image: -moz-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
+	background-image: linear-gradient(to right, #94577D, #A47090, #94577D);*/
+
+}
+
+.container{
+	margin-top: 0px;
+	padding-top: 0px;
+
+	height: 100%;
+
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+	background-color: #eeeedd;    		
+}
+
+/*icons must be 1/6th original size*/
+#about_icon, #contact_icon, #therapy_icon{
+	height: 42px;
+	width: 42px;
+}
+
+#homes_pic{
+	height: 56px;
+	width: 100px;
+}
+
 #pic_holder{
 	margin-top: 20px;
+}
+
+#quote{
+	font-family: 'Droid Serif', serif;
 }
 
 #welcomes_name{
@@ -28,6 +81,7 @@
 	margin-top: 20px;
 	margin-bottom: 10px;
 	font-size: 36px;
+	font-family: 'Droid Serif', serif;
 	-webkit-margin-before: 0.67em;
 	-webkit-margin-after: 0.67em;
 	-webkit-margin-start: 0px;
@@ -177,9 +231,7 @@ label{
 	padding-top: 10px;
 }
 
-#margin15{
-	padding: 15px;
-}
+
 
 h4{
 	text-align: center;
@@ -189,16 +241,29 @@ h4{
 	color: white;
 }
 
+#margin15{
+	padding: 0px;
+	margin: 0px;
+}
 
 .navbar-default .navbar-header .navbar-brand {
     color: white;
 } 
 
 .navbar-default{
-	background-image: -webkit-linear-gradient(to right, #94577D, #A47090, #94577D);
+	background-color: #eeeedd;
+	border: 0px;
+}
+
+
+.container-fluid{
+	background-color: #A47090;
+	/*background-image: -webkit-linear-gradient(to right, #94577D, #A47090, #94577D);
 	background-image: -o-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
 	background-image: -moz-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
-	background-image: linear-gradient(to right, #94577D, #A47090, #94577D);
+	background-image: linear-gradient(to right, #94577D, #A47090, #94577D);*/
+	margin-bottom: 0px;
+	padding-bottom: 0px;
 		
 }
 
