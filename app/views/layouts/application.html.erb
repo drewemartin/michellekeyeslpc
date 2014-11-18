@@ -3,6 +3,8 @@
 <head>
   <title>Michellekeyeslpc</title>
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Cardo:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -29,12 +31,10 @@
 
   <%= yield %>
 
-
-
-
- 
-
 </div>
+
+<%= render 'layouts/footer' %>
+
 
 </body>
 </html>

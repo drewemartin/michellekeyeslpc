@@ -30,8 +30,8 @@ nav.navbar.navbar-default:after{
 #purple_top_div{
 	color: rgba(255, 255, 255, 0);
 	height: 39px;
-	background-color: #A47090;
-	border-radius: 0 0 40px 40px;
+	background-color: #6b164b;
+	border-radius: 0 0 100% 100%;
 	/*background-image: -webkit-linear-gradient(to right, #94577D, #A47090, #94577D);
 	background-image: -o-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
 	background-image: -moz-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
@@ -39,18 +39,42 @@ nav.navbar.navbar-default:after{
 
 }
 
+.navbar-bottom {
+	height: 55px;
+	background-color: #6b164b;
+	color:#FFFFFF;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	position:absolute;
+	bottom:0;
+	width: 100%;
+}
+
+.footer{
+	background-color: #A47090;
+	width: 100%;
+}
+
 .container{
 	margin-top: 0px;
 	padding-top: 0px;
 
-	height: 100%;
+	/*height: 100%;*/
+}
 
+#footer_padding{
+	padding-top: 15px;
+}
+
+.footer_span{
+	font-size: 20px;
 }
 
 html, body {
     height: 100%;
     margin: 0;
-	background-color: #eeeedd;    		
+	background-color: white;    		
 }
 
 /*icons must be 1/6th original size*/
@@ -80,8 +104,8 @@ html, body {
 	color: inherit;
 	margin-top: 20px;
 	margin-bottom: 10px;
-	font-size: 36px;
-	font-family: 'Droid Serif', serif;
+	font-size: 36px
+;	font-family: 'Droid Sans', serif;
 	-webkit-margin-before: 0.67em;
 	-webkit-margin-after: 0.67em;
 	-webkit-margin-start: 0px;
@@ -198,6 +222,10 @@ html, body {
 	margin-top: 10px;
 }
 
+.btn-default{
+	background-color: #eeeedd; 
+}
+
 #letter_message{
 	width: 220px;
 	height: 220px;
@@ -257,7 +285,7 @@ h4{
 
 
 .container-fluid{
-	background-color: #A47090;
+	background-color: #6b164b;
 	/*background-image: -webkit-linear-gradient(to right, #94577D, #A47090, #94577D);
 	background-image: -o-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
 	background-image: -moz-linear-linear-gradient(to right, #94577D, #A47090, #94577D);
