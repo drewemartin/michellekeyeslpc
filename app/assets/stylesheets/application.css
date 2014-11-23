@@ -84,8 +84,10 @@ html, body {
 }
 
 #homes_pic{
-	height: 56px;
-	width: 100px;
+	height: 98px;
+	width: 175px;
+	margin-bottom: 50px;
+	margin-top: 30px;
 }
 
 #pic_holder{
@@ -93,23 +95,32 @@ html, body {
 }
 
 #quote{
-	font-family: 'Droid Serif', serif;
+	font-family: 'Cardo', serif;
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+#quote_author{
+	font-family: 'Cardo', serif;
+	font: 30px;
+	margin-top: 20px;
+	margin-bottom: 45px;
 }
 
 #welcomes_name{
-	position: relative;
-	font-family: inherit;
-	font-weight: 500;
-	line-height: 1.1;
-	color: inherit;
-	margin-top: 20px;
+/*	position: relative;
+	font-family: inherit;*/
+/*	font-weight: 500;
+	line-height: 1.1;*/
+	/*color: inherit;*/
+	margin-top: 40px;
 	margin-bottom: 10px;
-	font-size: 36px
-;	font-family: 'Droid Sans', serif;
-	-webkit-margin-before: 0.67em;
+	font-size: 50px;
+	font-family: 'Droid Sans', serif;
+	/*-webkit-margin-before: 0.67em;
 	-webkit-margin-after: 0.67em;
 	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
+	-webkit-margin-end: 0px;*/
 }
 
 #letter_notice_div{
@@ -222,9 +233,23 @@ html, body {
 	margin-top: 10px;
 }
 
-.btn-default{
-	background-color: #eeeedd; 
+.btn-group-justified > .btn-group .btn {
+	color: orange;
 }
+
+.btn-default{
+	background-color: #eeeedd;
+}
+
+
+.btn-group .btn-group-justified > .btn-group:hover{
+	background-color: black;
+}
+
+.btn-default:hover{
+	
+}
+
 
 #letter_message{
 	width: 220px;
@@ -279,7 +304,7 @@ h4{
 } 
 
 .navbar-default{
-	background-color: #eeeedd;
+	background-color: white;
 	border: 0px;
 }
 
@@ -295,6 +320,17 @@ h4{
 		
 }
 
+#submit{
+	margin-top: 10px;
+	background-color: #eeeedd;
+	color: #428bca;
+}
+
+#letter_message {
+	width: 220px;
+	height: 90px;
+}
+
 .navbar-default .navbar-nav > li > a {
     color: white;
     padding-bottom: 0px;
@@ -302,7 +338,13 @@ h4{
     border-bottom: 2px solid rgba(0, 0, 0, 0);
 }
 
+label{
+	padding: 0px;
+}
 
+.field{
+	margin-bottom: -20px;
+}
 
 .navbar-default .navbar-nav > li > a:hover{
 	border-bottom: 2px solid white;

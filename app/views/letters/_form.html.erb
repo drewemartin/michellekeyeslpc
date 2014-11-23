@@ -28,23 +28,25 @@
     <%= f.text_area :message %>
   </div>
   <div class="field">
+
+    <p id='appointment_par'>
+      To Request an Appointment Please <br>
+      Select a Date Before Sending Message
+    </p>
+
     <%= label_tag 'month:'  %>
-    <%= select_tag("month", options_for_select(@month_range)) %>
-  </div>
-  <div class="field">
+    <%= select_tag("month", options_for_select(@month_range)) %> 
+ 
     <%= label_tag 'day:'  %>
-    <%= select_tag("day", options_for_select(@day_range)) %>
-  </div>
-  <div class="field">
+    <%= select_tag("day", options_for_select(@day_range)) %> 
+
     <%= label_tag 'year:'  %>
-    <%= select_tag("year", options_for_select(@year_range)) %>
-  </div>
-  <div class="field">
+    <%= select_tag("year", options_for_select(@year_range)) %> 
     <%= label_tag 'time:'  %>
     <%= select_tag("time", options_for_select(@time_range)) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Send Message', :id=> "submit"%>
   </div>
 <% end %>
 
